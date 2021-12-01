@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-with open('radar_readings.txt') as readings:
+with open('day_1_input.txt') as readings:
   sonar_readings = readings.readlines()
   sonar_readings = pd.Series([int(reading) for reading in sonar_readings])
   
