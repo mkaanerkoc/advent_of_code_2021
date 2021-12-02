@@ -1,3 +1,5 @@
+import pandas as pd
+
 with open('day_2_input.txt') as day2_input:
   moves = day2_input.readlines()
   moves = pd.DataFrame([(move.split(' ')[0], int(move.split(' ')[1])) for move in moves], columns=['direction', 'size'])
