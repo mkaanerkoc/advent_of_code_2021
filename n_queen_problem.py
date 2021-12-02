@@ -35,7 +35,7 @@ def number_of_combinations(size, queens=[], row=0) -> int:
     
     number_of_paths = 0
     for square in legal_squares:
-        ''' this is where graphical search is done '''
+        ''' this is where depth-first-search is done '''
         queens.append((row, square))
         number_of_paths += number_of_combinations(size, queens, row+1)
         queens.pop()
