@@ -21,9 +21,10 @@ def calculate_legal_squares(size:int, queens:list, row:int) -> set:
 def number_of_combinations(size, queens=[], row=0) -> int:
     '''
     main solver method. it calculates all the legal squares
-    in the given row and recursively calling itself. it does 
-    depth-first-search by leveraging python list since it
-    can works like a stack with append and pop methods.
+    on the given row and recursively calling itself for each
+    of the legal square it has. it does depth-first-search by 
+    leveraging python list since it can works like a stack 
+    with append and pop methods.
     '''
     legal_squares = calculate_legal_squares(size, queens, row)
     
