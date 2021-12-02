@@ -9,10 +9,12 @@ def calculate_legal_squares(size:int, queens:list, row:int) -> set:
     given row by using board size and already placed queens 
     on the board.
     '''
+    # initially set all squares as legal.
     line = set(range(size))
     for queen in queens:
         queen_row, queen_col = queen
         depth = row - queen_row
+        # discard the illegal squares. out of board squares will be discarded.
         line.discard(queen_col)
         line.discard(queen_col-depth)
         line.discard(queen_col+depth)
