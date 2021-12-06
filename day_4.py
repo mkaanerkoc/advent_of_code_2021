@@ -2,7 +2,7 @@ from collections import defaultdict
 
 def sum_of_unmarked_numbers(board):
   sum_of_unmarkeds = 0
-  for row_index, row_set in board['rows'].items():
+  for row_set in board['rows']:
     sum_of_unmarkeds += sum(row_set)
   return sum_of_unmarkeds
 
@@ -23,14 +23,11 @@ for board_index, board in enumerate(boards):
 # Create dictionary to store unmarked numbers for each row/column and board
 unmarked_numbers = {}
 for board_index, board in enumerate(boards):
-  if board_index not in unmarked_numbers:
-    unmarked_numbers[board_index] = {'rows':{}, 'cols':{}}
+  if board_index not in unmarked_numbers: # initialize missing boards
+    unmarked_numbers[board_index] = {'rows':[set() for _ in range(5)], 
+                                     'cols':[set() for _ in range(5)]}
   for row_index, row in enumerate(board):
-    if row_index not in unmarked_numbers[board_index]['rows']:
-      unmarked_numbers[board_index]['rows'][row_index] = set()
     for column_index, number in enumerate(row.split()):
-      if column_index not in unmarked_numbers[board_index]['cols']:
-        unmarked_numbers[board_index]['cols'][column_index] = set()
       unmarked_numbers[board_index]['rows'][row_index].add(int(number))
       unmarked_numbers[board_index]['cols'][column_index].add(int(number))
 
@@ -55,3 +52,5 @@ print(list(bingo_boards.values())[0])
 
 # Question 2- Answer
 print(list(bingo_boards.values())[-1])
+
+
