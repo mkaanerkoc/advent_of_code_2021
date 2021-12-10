@@ -1,3 +1,5 @@
+import numpy as np
+
 with open('day_10_input.txt', 'r') as day_input:
   lines = [list(row) for row in day_input.read().split('\n')]
 
@@ -32,6 +34,6 @@ for line in lines:
     repairing_costs.append(total_score)
 
 answer_1 = sum(wrong_symbol_points[symbol] for symbol in wrong_symbol_total)
-answer_2 = sorted(repairing_costs)[len(repairing_costs)//2]
+answer_2 = np.median(np.array(repairing_costs))
 print(answer_1, answer_2)
 
