@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 def solution():
@@ -33,11 +33,8 @@ def step(template_dict, letter_count, formulas_dict):
 
 
 def initialize(template):
-    letters_count = defaultdict(int)
+    letters_count = Counter(template)
     pairs_in_template = defaultdict(int)
     for curr_char, next_char in zip(template, template[1:]):
         pairs_in_template[curr_char + next_char] += + 1
-
-    for char in template:
-        letters_count[char] += 1
     return pairs_in_template, letters_count
